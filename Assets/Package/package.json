@@ -1,0 +1,30 @@
+{
+	"name": "com.varlab.scorm",
+	"displayName": "SCORM Support for WebGL",
+	"version": "0.2.4",
+	"unity": "2021.3",
+	"description": "Provides SCORM template, settings, and build integrations for SCORM.",
+	"category": "Build Tools",
+
+	"author": {
+		"name": "Packaging Pete",
+		"email": "pete@petesprofessionalpackagingparlor.io",
+		"url": "https://varlab-dev.atlassian.net/wiki/spaces/CV2/pages/504037419/SCORM"
+	},
+
+	"keywords": [
+		"unity", "editor", "scorm", "web", "webgl"
+	],
+
+	"samples": [
+		{
+		"displayName": "Objectives Example",
+		"description": "Shows an example of scorm being used to view objectives and set data in the UI.",
+		"path": "Samples~/Objectives"
+		}
+	],
+
+	"publishConfig": {
+		"registry":"http://upm.core.varlab.org:4873/"
+	}
+}

@@ -1,0 +1,33 @@
+# This is a starter pipeline configuration for automating delivery of CORE packages.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+
+image: atlassian/default-image:3
+
+pipelines:
+  # This will create or update a staging upm branch with a package for commits pushed 
+  # to the corresponding feature branch
+  default: 
+    - step:
+        name: 'Create UPM Staging Branch'
+        script:
+          - /bin/bash CI/make_package.sh $TARGET_BRANCH-$BITBUCKET_BRANCH
+
+  # This will update the upm branch with a new package only for changes to the 'main' branch.
+  # This can be renamed to any branch name that exists within your repo.
+  # You may also add more branches to create a staging setup if necessary.
+  branches:
+    main:
+      - step:
+          name: 'Create UPM Branch'
+          script:
+            - /bin/bash CI/make_package.sh $TARGET_BRANCH
+      - step:
+          name: 'Publish UPM Package'
+          image: node:10.15.1
+          script:
+            - /bin/bash CI/publish_setup.sh $FOLDER_TO_EXPORT
+            - pipe: atlassian/npm-publish:0.2.0
+              variables:
+                FOLDER: $FOLDER_TO_EXPORT
+                NPM_TOKEN: $NPM_TOKEN
