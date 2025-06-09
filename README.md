@@ -3,7 +3,7 @@
 ![](https://img.shields.io/badge/2023--07--07-0.2.3-green)
 
 
-Provides support for SCORM commands and build processes. Most CVRI DLX is packaged as a SCORM object and uploaded to course shells for use.
+Provides support for SCORM commands and build processes. Most CVRI DLX is packaged as a SCORM object and uploaded to course shells for use. See the CORE-confluence repository for developer documentation.
 
 
 ## Installation
